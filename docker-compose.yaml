@@ -18,10 +18,16 @@
       restart: always
       environment:
         MARIADB_ROOT_PASSWORD: example
+      volumes:
+        - ta25bdbdata:/var/lib/mysql
+      ports:
+        - 33061:3306
 
     adminer:
       image: adminer
       restart: always
       ports:
         - 8080:8080
-    
+
+  volumes:
+    ta25bdbdata:
